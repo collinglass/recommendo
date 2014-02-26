@@ -9,5 +9,4 @@ A mock recommendation system for a book reading site
 ### TODO
 
 Find Similar Users: 
-- Euclidean Distance
 - Pearson Correlation
