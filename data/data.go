@@ -1,14 +1,9 @@
 package data
 
 type User struct {
-	UserId    int
-	BookZero  float64
-	BookOne   float64
-	BookTwo   float64
-	BookThree float64
-	BookFour  float64
-	BookFive  float64
-	Similars  map[int]Similar
+	UserId   int
+	Ratings  map[int]float64
+	Similars map[int]Similar
 }
 
 type Similar struct {
@@ -20,67 +15,82 @@ func Populate() map[int]User {
 	users := make(map[int]User)
 
 	user0 := &User{
-		UserId:    0,
-		BookZero:  2.5,
-		BookOne:   3.5,
-		BookTwo:   3.0,
-		BookThree: 3.5,
-		BookFour:  2.5,
-		BookFive:  3.0,
-		Similars:  make(map[int]Similar),
+		UserId: 0,
+		Ratings: map[int]float64{
+			0: 2.5,
+			1: 3.5,
+			2: 3.0,
+			3: 3.5,
+			4: 2.5,
+			5: 3.0,
+		},
+		Similars: make(map[int]Similar),
 	}
+
 	user1 := &User{
-		UserId:    1,
-		BookZero:  3.0,
-		BookOne:   3.5,
-		BookTwo:   1.5,
-		BookThree: 5.0,
-		BookFive:  3.0,
-		BookFour:  3.5,
-		Similars:  make(map[int]Similar),
+		UserId: 1,
+		Ratings: map[int]float64{
+			0: 3.0,
+			1: 3.5,
+			2: 1.5,
+			3: 5.0,
+			5: 3.0,
+			4: 3.5,
+		},
+		Similars: make(map[int]Similar),
 	}
 	user2 := &User{
-		UserId:    2,
-		BookZero:  2.5,
-		BookOne:   3.0,
-		BookThree: 3.5,
-		BookFive:  4.0,
-		Similars:  make(map[int]Similar),
+		UserId: 2,
+		Ratings: map[int]float64{
+			0: 2.5,
+			1: 3.0,
+			3: 3.5,
+			5: 4.0,
+		},
+		Similars: make(map[int]Similar),
 	}
 	user3 := &User{
-		UserId:    3,
-		BookOne:   3.5,
-		BookTwo:   3.0,
-		BookFive:  4.5,
-		BookThree: 4.0,
-		BookFour:  2.5,
-		Similars:  make(map[int]Similar),
+		UserId: 3,
+		Ratings: map[int]float64{
+			1: 3.5,
+			2: 3.0,
+			5: 4.5,
+			3: 4.0,
+			4: 2.5,
+		},
+		Similars: make(map[int]Similar),
 	}
 	user4 := &User{
-		UserId:    4,
-		BookZero:  3.0,
-		BookOne:   4.0,
-		BookTwo:   2.0,
-		BookThree: 3.0,
-		BookFive:  3.0,
-		BookFour:  2.0,
-		Similars:  make(map[int]Similar),
+		UserId: 4,
+		Ratings: map[int]float64{
+			0: 3.0,
+			1: 4.0,
+			2: 2.0,
+			3: 3.0,
+			5: 3.0,
+			4: 2.0,
+		},
+		Similars: make(map[int]Similar),
 	}
 	user5 := &User{
-		UserId:    5,
-		BookZero:  3.0,
-		BookOne:   4.0,
-		BookFive:  3.0,
-		BookThree: 5.0,
-		BookFour:  3.5,
-		Similars:  make(map[int]Similar),
+		UserId: 5,
+		Ratings: map[int]float64{
+			0: 3.0,
+			1: 4.0,
+			5: 3.0,
+			3: 5.0,
+			4: 3.5,
+		},
+		Similars: make(map[int]Similar),
 	}
 	user6 := &User{
-		UserId:    6,
-		BookOne:   4.5,
-		BookFour:  1.0,
-		BookThree: 4.0,
-		Similars:  make(map[int]Similar),
+		UserId: 6,
+		Ratings: map[int]float64{
+			1: 4.5,
+			4: 1.0,
+			3: 4.0,
+		},
+		Similars: make(map[int]Similar),
 	}
 	users[0] = *user0
 	users[1] = *user1

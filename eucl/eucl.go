@@ -6,30 +6,17 @@ import (
 )
 
 func Euclidean2(user1 *data.User, user2 *data.User) {
-	diff := make([]float64, 6, 6)
+	diff := make(map[int]float64)
 
-	if user1.BookZero != 0 && user2.BookZero != 0 {
-		diff[0] = math.Pow((user1.BookZero + user2.BookZero), 2)
-	}
-	if user1.BookOne != 0 && user2.BookOne != 0 {
-		diff[1] = math.Pow((user1.BookOne + user2.BookOne), 2)
-	}
-	if user1.BookTwo != 0 && user2.BookTwo != 0 {
-		diff[2] = math.Pow((user1.BookTwo + user2.BookTwo), 2)
-	}
-	if user1.BookThree != 0 && user2.BookThree != 0 {
-		diff[3] = math.Pow((user1.BookThree + user2.BookThree), 2)
-	}
-	if user1.BookFour != 0 && user2.BookFour != 0 {
-		diff[4] = math.Pow((user1.BookFour + user2.BookFour), 2)
-	}
-	if user1.BookFive != 0 && user2.BookFive != 0 {
-		diff[5] = math.Pow((user1.BookFive + user2.BookFive), 2)
+	for key, _ := range user1.Ratings {
+		if user1.Ratings[key] != 0 && user2.Ratings[key] != 0 {
+			diff[key] = math.Pow((user1.Ratings[key] + user2.Ratings[key]), 2)
+		}
 	}
 
 	var result float64
-	for i := 0; i < len(diff); i++ {
-		result += diff[i]
+	for _, value := range diff {
+		result += value
 	}
 	result = 1 / (1 + math.Sqrt(result))
 

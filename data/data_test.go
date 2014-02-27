@@ -14,5 +14,5 @@ func TestNotNil(t *testing.T) {
 func TestValidData(t *testing.T) {
 	users := Populate()
 
-	assert.Equal(t, users[0].BookZero, 2.5)
+	assert.Equal(t, users[0].Ratings[0], 2.5)
 }

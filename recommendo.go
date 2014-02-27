@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/collinglass/recommendo/data"
 	"github.com/collinglass/recommendo/eucl"
+	//"math"
 )
 
 func main() {
