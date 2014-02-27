@@ -19,6 +19,7 @@ Matching products (optional)
 Find Similar Users
 - Euclidean Distance
 - Pearson Correlation
+
 Ranking the critics
 
 ## Objective
