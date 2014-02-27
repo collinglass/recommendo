@@ -1,4 +1,4 @@
-package eucl
+package algo
 
 import (
 	"github.com/collinglass/recommendo/data"
