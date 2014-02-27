@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"github.com/collinglass/recommendo/algo"
 	"github.com/collinglass/recommendo/data"
+	"github.com/collinglass/recommendo/sort"
 )
 
 func main() {
+	// Populate data list
 	users := data.Populate()
 
-	algo.PearsonUsers(users)
-	//algo.EuclideanUsers(users)
-	fmt.Println(users[0].Similars)
+	/* func(size of list, data.UserId, map of data.User, algo.SimFunc) */
+	fmt.Println(sort.TopMatches(3, 0, users, algo.Pearson))
 }

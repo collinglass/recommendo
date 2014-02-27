@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func Pearson2(user1 *data.User, user2 *data.User) {
+func Pearson(user1 *data.User, user2 *data.User) {
 	var sum1 float64
 	var sum2 float64
 	var sumsq1 float64
@@ -51,17 +51,4 @@ func Pearson2(user1 *data.User, user2 *data.User) {
 
 	user1.Similars[id2] = data.Similar{id2, result}
 	user2.Similars[id1] = data.Similar{id1, result}
-}
-
-func PearsonUsers(users map[int]data.User) map[int]data.User {
-	for user1, _ := range users {
-		for user2, _ := range users {
-			if user1 != user2 {
-				u1 := users[user1]
-				u2 := users[user2]
-				Pearson2(&u1, &u2)
-			}
-		}
-	}
-	return users
 }
