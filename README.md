@@ -18,11 +18,8 @@ A mock recommendation system for a book reading site
 
 ### DONE
 
-Find Similar Users
-- Euclidean Distance
-- Pearson Correlation
-
-Ranking the critics
+- Find Similar Users (Euclidean, Pearson)
+- Ranking the critics
 
 ## Objective
 

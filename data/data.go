@@ -7,8 +7,8 @@ type User struct {
 }
 
 type Similar struct {
-	UserId   int
-	Distance float64
+	UserId int
+	Score  float64
 }
 
 func Populate() map[int]User {
