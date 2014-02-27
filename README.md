@@ -10,9 +10,11 @@ A mock recommendation system for a book reading site
 
 - Understand why Euclidean and Pearson Results are so different (factor of 10) - possibly bug in one of the algos.
 
-Recommending Items (given a user)
+- Recommending Items (given a user)
 
-Matching products (optional)
+- Matching products (optional)
+
+- Serve data to a client and use google API to visualize data
 
 ### DONE
 
