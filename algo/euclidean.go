@@ -10,7 +10,7 @@ func Euclidean(user1 *data.User, user2 *data.User) {
 
 	for key, _ := range user1.Ratings {
 		if user1.Ratings[key] != 0 && user2.Ratings[key] != 0 {
-			diff[key] = math.Pow((user1.Ratings[key] + user2.Ratings[key]), 2)
+			diff[key] = math.Pow((user1.Ratings[key] - user2.Ratings[key]), 2)
 		}
 	}
 
