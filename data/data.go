@@ -4,11 +4,17 @@ type User struct {
 	UserId   int
 	Ratings  map[int]float64
 	Similars map[int]Similar
+	Recommended: map[int]Recomendation
 }
 
 type Similar struct {
 	UserId int
 	Score  float64
+}
+
+type Recommendation struct {
+	Book  int
+	Score float64
 }
 
 func Populate() map[int]User {
@@ -24,7 +30,9 @@ func Populate() map[int]User {
 			4: 2.5,
 			5: 3.0,
 		},
-		Similars: make(map[int]Similar),
+		Similars:    make(map[int]Similar),
+		Recommended: make(map[int]Recomendation),
+		Recommended: make(map[int]Recomendation),
 	}
 
 	user1 := &User{
@@ -37,7 +45,8 @@ func Populate() map[int]User {
 			5: 3.0,
 			4: 3.5,
 		},
-		Similars: make(map[int]Similar),
+		Similars:    make(map[int]Similar),
+		Recommended: make(map[int]Recomendation),
 	}
 	user2 := &User{
 		UserId: 2,
@@ -47,7 +56,8 @@ func Populate() map[int]User {
 			3: 3.5,
 			5: 4.0,
 		},
-		Similars: make(map[int]Similar),
+		Similars:    make(map[int]Similar),
+		Recommended: make(map[int]Recomendation),
 	}
 	user3 := &User{
 		UserId: 3,
@@ -58,7 +68,8 @@ func Populate() map[int]User {
 			3: 4.0,
 			4: 2.5,
 		},
-		Similars: make(map[int]Similar),
+		Similars:    make(map[int]Similar),
+		Recommended: make(map[int]Recomendation),
 	}
 	user4 := &User{
 		UserId: 4,
@@ -70,7 +81,8 @@ func Populate() map[int]User {
 			5: 3.0,
 			4: 2.0,
 		},
-		Similars: make(map[int]Similar),
+		Similars:    make(map[int]Similar),
+		Recommended: make(map[int]Recomendation),
 	}
 	user5 := &User{
 		UserId: 5,
@@ -81,7 +93,8 @@ func Populate() map[int]User {
 			3: 5.0,
 			4: 3.5,
 		},
-		Similars: make(map[int]Similar),
+		Similars:    make(map[int]Similar),
+		Recommended: make(map[int]Recomendation),
 	}
 	user6 := &User{
 		UserId: 6,
@@ -90,7 +103,8 @@ func Populate() map[int]User {
 			4: 1.0,
 			3: 4.0,
 		},
-		Similars: make(map[int]Similar),
+		Similars:    make(map[int]Similar),
+		Recommended: make(map[int]Recomendation),
 	}
 	users[0] = *user0
 	users[1] = *user1

@@ -18,3 +18,14 @@ func GetSimilar(users map[int]data.User, simFunc SimFunc) map[int]data.User {
 	}
 	return users
 }
+
+func GetMySimilar(user int, users map[int]data.User, simFunc SimFunc) map[int]data.User {
+	for user1, _ := range users {
+		if user1 != user {
+			u1 := users[user1]
+			u2 := users[user]
+			simFunc(&u1, &u2)
+		}
+	}
+	return users
+}

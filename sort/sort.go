@@ -6,6 +6,18 @@ import (
 	"sort"
 )
 
+type ratings []float64
+
+// Sort []float64
+func (p ratings) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
+func (p ratings) Len() int           { return len(p) }
+func (p ratings) Less(i, j int) bool { return p[i] > p[j] }
+
+func SortFloat(a ratings) ratings {
+	sort.Sort(a)
+	return a
+}
+
 // A slice of Pairs that implements sort.Interface to sort by Value.
 type PairList []data.Similar
 
