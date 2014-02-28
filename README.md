@@ -8,8 +8,7 @@ A mock recommendation system for a book reading site
 
 ### TODO
 
-- Understand why Euclidean and Pearson Results are so different (factor of 10) - possibly bug in one of the algos.
-- Recommending Items (given a user)
+- Understand why Euclidean gives 99% matching to 6 on user 0 - possibly bug in algo.
 - Matching products (optional)
 - Serve data to a client and use google API to visualize data
 
@@ -17,6 +16,7 @@ A mock recommendation system for a book reading site
 
 - Find Similar Users (Euclidean, Pearson)
 - Ranking the critics
+- Recommending Items (given a user)
 
 ## Objective
 

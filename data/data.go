@@ -1,10 +1,10 @@
 package data
 
 type User struct {
-	UserId   int
-	Ratings  map[int]float64
-	Similars map[int]Similar
-	Recommended: map[int]Recomendation
+	UserId      int
+	Ratings     map[int]float64
+	Similars    map[int]Similar
+	Recommended map[int]Recommendation
 }
 
 type Similar struct {
@@ -31,8 +31,7 @@ func Populate() map[int]User {
 			5: 3.0,
 		},
 		Similars:    make(map[int]Similar),
-		Recommended: make(map[int]Recomendation),
-		Recommended: make(map[int]Recomendation),
+		Recommended: make(map[int]Recommendation),
 	}
 
 	user1 := &User{
@@ -46,7 +45,7 @@ func Populate() map[int]User {
 			4: 3.5,
 		},
 		Similars:    make(map[int]Similar),
-		Recommended: make(map[int]Recomendation),
+		Recommended: make(map[int]Recommendation),
 	}
 	user2 := &User{
 		UserId: 2,
@@ -57,7 +56,7 @@ func Populate() map[int]User {
 			5: 4.0,
 		},
 		Similars:    make(map[int]Similar),
-		Recommended: make(map[int]Recomendation),
+		Recommended: make(map[int]Recommendation),
 	}
 	user3 := &User{
 		UserId: 3,
@@ -69,7 +68,7 @@ func Populate() map[int]User {
 			4: 2.5,
 		},
 		Similars:    make(map[int]Similar),
-		Recommended: make(map[int]Recomendation),
+		Recommended: make(map[int]Recommendation),
 	}
 	user4 := &User{
 		UserId: 4,
@@ -82,7 +81,7 @@ func Populate() map[int]User {
 			4: 2.0,
 		},
 		Similars:    make(map[int]Similar),
-		Recommended: make(map[int]Recomendation),
+		Recommended: make(map[int]Recommendation),
 	}
 	user5 := &User{
 		UserId: 5,
@@ -94,7 +93,7 @@ func Populate() map[int]User {
 			4: 3.5,
 		},
 		Similars:    make(map[int]Similar),
-		Recommended: make(map[int]Recomendation),
+		Recommended: make(map[int]Recommendation),
 	}
 	user6 := &User{
 		UserId: 6,
@@ -104,7 +103,7 @@ func Populate() map[int]User {
 			3: 4.0,
 		},
 		Similars:    make(map[int]Similar),
-		Recommended: make(map[int]Recomendation),
+		Recommended: make(map[int]Recommendation),
 	}
 	users[0] = *user0
 	users[1] = *user1
