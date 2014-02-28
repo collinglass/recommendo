@@ -12,5 +12,5 @@ func main() {
 	users := data.Populate()
 
 	/* func(size of list, data.UserId, map of data.User, algo.SimFunc) */
-	fmt.Println(sort.TopMatches(3, 0, users, algo.Pearson))
+	fmt.Println(sort.TopMatches(3, 0, users, algo.Euclidean))
 }
