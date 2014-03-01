@@ -1,4 +1,4 @@
 
 all:
-    go build
-    ./recommendo
+	go build
+	./recommendo
