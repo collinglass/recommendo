@@ -8,7 +8,7 @@ A mock recommendation system for a book reading site
 
 ### TODO
 
-- Understand why Euclidean gives 99% matching to 6 on user 0 - possibly bug in algo.
+- Understand why Euclidean gives 99% matching to 6 on user 0 - possibly bug in algo or is it just how it matches?
 - Matching products (optional)
 - Serve data to a client and use google API to visualize data
 

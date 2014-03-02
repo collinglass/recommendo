@@ -13,9 +13,15 @@ func main() {
 
 	userId := 6
 
-	// recommendation list
+	// recommendation list using Pearson
 	reco.Recommend(userId, users, algo.Pearson)
 
 	// Print user's recommended list
-	fmt.Println(users[userId].Recommended)
+	fmt.Println("Pearson: ", users[userId].Recommended)
+
+	// recommendation list using Euclidean
+	reco.Recommend(userId, users, algo.Euclidean)
+
+	// Print user's recommended list
+	fmt.Println("Euclidean: ", users[userId].Recommended)
 }
