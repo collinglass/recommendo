@@ -32,3 +32,15 @@ func Recommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) dat
 	}
 	return rankings
 }
+
+func TransformPrefs(prefpointer *data.PrefList) {
+	prefs := *prefpointer
+	result := data.NewPrefList()
+	for person, items := range prefs {
+		for item, pref := range items {
+			result[item] = make(map[int]float64)
+			result[item][person] = pref
+		}
+	}
+	prefpointer = &result
+}
