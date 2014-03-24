@@ -1,8 +1,8 @@
 package reco
 
 import (
-	"github.com/collinglass/recommendo/algo"
-	"github.com/collinglass/recommendo/data"
+	"github.com/collinglass/recommendo/itembasedfiltering/algo"
+	"github.com/collinglass/recommendo/itembasedfiltering/data"
 )
 
 func Recommend(userId int, users map[int]data.User, simFunc algo.SimFunc) {

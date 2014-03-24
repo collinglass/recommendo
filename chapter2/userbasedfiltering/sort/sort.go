@@ -1,8 +1,8 @@
 package sort
 
 import (
-	"github.com/collinglass/recommendo/algo"
-	"github.com/collinglass/recommendo/data"
+	"github.com/collinglass/recommendo/chapter2/userbasedfiltering/algo"
+	"github.com/collinglass/recommendo/chapter2/userbasedfiltering/data"
 	"sort"
 )
 
@@ -29,9 +29,14 @@ func sortMapByValue(m map[int]data.Similar) PairList {
 /* n is size of list, person is data.UserId,
 users is map of data.User and
 simFunc is algo.SimFunc */
-func TopMatches(n int, person int, users map[int]data.User, simFunc algo.SimFunc) PairList {
-	algo.GetSimilar(users, simFunc)
-	sort := sortMapByValue(users[person].Similars)
+func TopMatches(prefs *data.PrefList, person int, n int, simFunc algo.SimFunc) PairList {
+	scores := algo.NewSimList()
+	for key, value := range prefs {
+		if key != person {
+			scores[person][key] = data.Similar{simFunc(prefs, person, key), key}
+		}
+	}
+	scores[person] = sortMapByValue(scores[person])
 
-	return sort[0:n]
+	return scores[person][0:n]
 }

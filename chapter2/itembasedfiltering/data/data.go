@@ -17,6 +17,9 @@ type Recommendation struct {
 	Score float64
 }
 
+type PrefList struct {
+}
+
 func Populate() map[int]User {
 	users := make(map[int]User)
 

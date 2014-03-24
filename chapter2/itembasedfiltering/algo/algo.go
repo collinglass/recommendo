@@ -1,7 +1,7 @@
 package algo
 
 import (
-	"github.com/collinglass/recommendo/data"
+	"github.com/collinglass/recommendo/itembasedfiltering/data"
 )
 
 type SimFunc func(user1 *data.User, user2 *data.User)

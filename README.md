@@ -21,3 +21,7 @@ A mock recommendation system for a book reading site
 ## Objective
 
 Compare two Euclidean Distance and Pearson Correlation algorithms for a recommendation system.
+
+## Plans for the future
+
+Complete go implementation of Programming Collective intelligence book.
