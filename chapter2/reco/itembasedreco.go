@@ -8,7 +8,7 @@ import (
 	"github.com/collinglass/recommendo/chapter2/sort"
 )
 
-func ItemRecommend(prefpointer *data.PrefList, simpointer *data.SimList, user int) (map[int]data.Recommendation, error) {
+func ItemBasedRecommend(prefpointer *data.PrefList, simpointer *data.SimList, user int) (map[int]data.Recommendation, error) {
 	prefs := *prefpointer
 	similarities := *simpointer
 	userRatings := prefs[user]
@@ -30,7 +30,7 @@ func ItemRecommend(prefpointer *data.PrefList, simpointer *data.SimList, user in
 }
 
 func GetSimilar(prefpointer *data.PrefList, simFunc algo.SimFunc) data.SimList {
-	TransformPrefs(prefpointer)
+	transformPrefs(prefpointer)
 
 	prefs := *prefpointer
 	simlist := data.NewSimList()
@@ -48,7 +48,7 @@ func GetSimilar(prefpointer *data.PrefList, simFunc algo.SimFunc) data.SimList {
 	return simlist
 }
 
-func TransformPrefs(prefpointer *data.PrefList) {
+func transformPrefs(prefpointer *data.PrefList) {
 	prefs := *prefpointer
 	result := data.NewPrefList()
 	for person, items := range prefs {

@@ -19,7 +19,7 @@ func main() {
 	simlist := reco.GetSimilar(&prefs, algo.Pearson)
 
 	// recommendation list using Pearson
-	recolist, err := reco.ItemRecommend(&prefs, &simlist, userId)
+	recolist, err := reco.ItemBasedRecommend(&prefs, &simlist, userId)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -30,7 +30,7 @@ func main() {
 	simlist = reco.GetSimilar(&prefs2, algo.Euclidean)
 
 	// recommendation list using Euclidean
-	recolist, err = reco.ItemRecommend(&prefs2, &simlist, userId)
+	recolist, err = reco.ItemBasedRecommend(&prefs2, &simlist, userId)
 	if err != nil {
 		fmt.Println(err)
 	}

@@ -15,7 +15,9 @@ Go implementation for Programming Collective Intelligence book.
 
 	- deliciousAPI for Golang (so far just parsing to file, maybe next step is to pull in with go and use dataset)
 
-	- item-based algorithms are off (bug somewhere)
+	- Bug in item-based algorithms, prints user 2, 5 when correct is user 2, 4
+
+	- item-based algorithms numbers are very different from user-based algorithms. (is there a bug?)
 
 - Chapter 3
 

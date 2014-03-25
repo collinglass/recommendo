@@ -6,7 +6,7 @@ import (
 	"github.com/collinglass/recommendo/chapter2/data"
 )
 
-func UserRecommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) (data.RecoList, error) {
+func UserBasedRecommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) (data.RecoList, error) {
 	prefs := *prefpointer
 
 	/*if _, ok := prefs[person]; ok {
