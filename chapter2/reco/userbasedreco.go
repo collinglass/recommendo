@@ -6,7 +6,7 @@ import (
 	"github.com/collinglass/recommendo/chapter2/data"
 )
 
-func Recommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) (data.RecoList, error) {
+func UserRecommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) (data.RecoList, error) {
 	prefs := *prefpointer
 
 	/*if _, ok := prefs[person]; ok {
@@ -38,18 +38,4 @@ func Recommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) (da
 		rankings[person][item] = data.Recommendation{item, recomendation / simSum[item]}
 	}
 	return rankings, nil
-}
-
-func TransformPrefs(prefpointer *data.PrefList) {
-	prefs := *prefpointer
-	result := data.NewPrefList()
-	for person, items := range prefs {
-		for item, pref := range items {
-			if len(result[item]) == 0 {
-				result[item] = make(map[int]float64)
-			}
-			result[item][person] = pref
-		}
-	}
-	*prefpointer = result
 }

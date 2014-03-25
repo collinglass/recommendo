@@ -15,20 +15,10 @@ Go implementation for Programming Collective Intelligence book.
 
 	- deliciousAPI for Golang (so far just parsing to file, maybe next step is to pull in with go and use dataset)
 
-	- 
+	- item-based algorithms are off (bug somewhere)
 
 - Chapter 3
 
-### DONE
-
-- Find Similar Users (Euclidean, Pearson)
-- Ranking the critics
-- Recommending Items (given a user)
-
 ## Objective
-
-Compare two Euclidean Distance and Pearson Correlation algorithms for a recommendation system.
-
-## Plans for the future
 
 Complete go implementation of Programming Collective intelligence book.

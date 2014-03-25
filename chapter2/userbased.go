@@ -15,7 +15,7 @@ func main() {
 	userId := 2
 
 	// recommendation list using Pearson
-	recolist, err := reco.Recommend(&prefs, userId, algo.Pearson)
+	recolist, err := reco.UserRecommend(&prefs, userId, algo.Pearson)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -24,7 +24,7 @@ func main() {
 	fmt.Println("User-based Pearson: ", recolist[userId])
 
 	// recommendation list using Euclidean
-	recolist, err = reco.Recommend(&prefs, userId, algo.Euclidean)
+	recolist, err = reco.UserRecommend(&prefs, userId, algo.Euclidean)
 	if err != nil {
 		fmt.Println(err)
 	}

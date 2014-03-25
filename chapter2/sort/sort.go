@@ -14,7 +14,7 @@ func (p PairList) Len() int           { return len(p) }
 func (p PairList) Less(i, j int) bool { return p[i].Score > p[j].Score }
 
 // A function to turn a map into a PairList, then sort and return it.
-func sortMapByValue(m map[int]data.Similar) PairList {
+func sortMapByValue(m map[int]data.Similar) map[int]data.Similar {
 	p := make(PairList, len(m))
 	i := 0
 	for _, v := range m {
@@ -22,21 +22,29 @@ func sortMapByValue(m map[int]data.Similar) PairList {
 		i++
 	}
 	sort.Sort(p)
-	return p
+	i = 0
+	for j, v := range p {
+		m[j] = v
+	}
+	return m
 }
 
 // Implement Algo and get Top Matches
 /* n is size of list, person is data.UserId,
 users is map of data.User and
 simFunc is algo.SimFunc */
-func TopMatches(prefs *data.PrefList, person int, n int, simFunc algo.SimFunc) PairList {
-	scores := algo.NewSimList()
-	for key, value := range prefs {
+func TopMatches(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) map[int]data.Similar {
+	scores := data.NewSimList()
+
+	prefs := *prefpointer
+	for key, _ := range prefs {
 		if key != person {
-			scores[person][key] = data.Similar{simFunc(prefs, person, key), key}
+			if len(scores[person]) == 0 {
+				scores[person] = make(map[int]data.Similar)
+			}
+			scores[person][key] = data.Similar{key, simFunc(&prefs, person, key)}
 		}
 	}
-	scores[person] = sortMapByValue(scores[person])
 
-	return scores[person][0:n]
+	return sortMapByValue(scores[person])
 }
