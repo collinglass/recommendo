@@ -2,7 +2,7 @@
 
 This directory holds the go code for Chapter 2 which focuses on user based and item based filtering techniques.
 
-As discussed in the book, user-based filtering is rather inefficient because it relies on rerunning the algorithm everytime a user makes a new action.
+As discussed in the book, user-based filtering is rather inefficient because it relies on rerunning the algorithm everytime a user makes a new action. Item based has added functions to pre compile the similar items list.
 
 ## Usage
 
@@ -12,9 +12,9 @@ As discussed in the book, user-based filtering is rather inefficient because it 
 
 The main directory contains ```userbased.go``` and ```itembased.go``` the main executables and a Makefile.
 
-```/reco``` contains the ```Recommend(..)``` func which uses all the other packages to create a list of recommended items to a given user. It also holds the ```TransformPrefs(prefs)``` function which transforms the prefs map from user-item to item-user ratings, used in Item-Based filtering.
+```/reco``` contains ```userbasedreco.go``` and ```itembasedreco.go``` which are controllers using all the other packages to create a list of recommended items to a given user.
 
-```/algo``` contains ```algo.go``` with the generic simFunc function which abstracts euclidean and pearson algorithms. It also contains euclidean and pearson algorithms in there respective ```*.go``` files.
+```/algo``` contains ```algo.go``` with the generic simFunc function which abstracts euclidean and pearson algorithms. It also contains euclidean and pearson algorithms in their respective ```*.go``` files.
 
 ```/sort``` contains map sorting algorithm.
 
