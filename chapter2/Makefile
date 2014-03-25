@@ -1,4 +1,6 @@
 
 all:
-	go build
-	./chapter2
+	go build userbased.go
+	./userbased
+	go build itembased.go
+	./itembased

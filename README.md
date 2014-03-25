@@ -1,16 +1,23 @@
 # Recommendo
 
-A mock recommendation system for a book reading site
+Go implementation for Programming Collective Intelligence book.
 
 ### Usage
 
-```go run recommendo.go```
+1. Navigate to chapter
+2. ```make```
 
 ### TODO
 
-- Understand why Euclidean gives 99% matching to 6 on user 0 - possibly bug in algo or is it just how it matches?
-- Matching products (optional)
 - Serve data to a client and use google API to visualize data
+
+- Chapter 2
+
+	- deliciousAPI for Golang (so far just parsing to file, maybe next step is to pull in with go and use dataset)
+
+	- 
+
+- Chapter 3
 
 ### DONE
 

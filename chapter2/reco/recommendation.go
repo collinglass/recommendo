@@ -1,12 +1,19 @@
 package reco
 
 import (
-	"github.com/collinglass/recommendo/chapter2/userbasedfiltering/algo"
-	"github.com/collinglass/recommendo/chapter2/userbasedfiltering/data"
+	//"errors"
+	"github.com/collinglass/recommendo/chapter2/algo"
+	"github.com/collinglass/recommendo/chapter2/data"
 )
 
-func Recommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) data.RecoList {
+func Recommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) (data.RecoList, error) {
 	prefs := *prefpointer
+
+	/*if _, ok := prefs[person]; ok {
+		if !ok {
+			return nil, errors.New("Id is out of bounds!")
+		}
+	}*/
 	reco := make(map[int]float64)
 	simSum := make(map[int]float64)
 
@@ -30,7 +37,7 @@ func Recommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) dat
 	for item, recomendation := range reco {
 		rankings[person][item] = data.Recommendation{item, recomendation / simSum[item]}
 	}
-	return rankings
+	return rankings, nil
 }
 
 func TransformPrefs(prefpointer *data.PrefList) {
@@ -38,9 +45,11 @@ func TransformPrefs(prefpointer *data.PrefList) {
 	result := data.NewPrefList()
 	for person, items := range prefs {
 		for item, pref := range items {
-			result[item] = make(map[int]float64)
+			if len(result[item]) == 0 {
+				result[item] = make(map[int]float64)
+			}
 			result[item][person] = pref
 		}
 	}
-	prefpointer = &result
+	*prefpointer = result
 }
