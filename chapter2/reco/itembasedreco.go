@@ -1,7 +1,6 @@
 package reco
 
 import (
-	//"errors"
 	"fmt"
 	"github.com/collinglass/recommendo/chapter2/algo"
 	"github.com/collinglass/recommendo/chapter2/data"
@@ -26,13 +25,12 @@ func ItemBasedRecommend(prefpointer *data.PrefList, simpointer *data.SimList, us
 	for item, score := range scores {
 		rankings[item] = data.Recommendation{item, (score / totalSim[item])}
 	}
-	return rankings, nil
+	return sort.SortMapByValue(rankings), nil
 }
 
 func GetSimilar(prefpointer *data.PrefList, simFunc algo.SimFunc) data.SimList {
-	transformPrefs(prefpointer)
+	prefs := transformPrefs(prefpointer)
 
-	prefs := *prefpointer
 	simlist := data.NewSimList()
 	c := 0
 	for item, _ := range prefs {
@@ -48,7 +46,7 @@ func GetSimilar(prefpointer *data.PrefList, simFunc algo.SimFunc) data.SimList {
 	return simlist
 }
 
-func transformPrefs(prefpointer *data.PrefList) {
+func transformPrefs(prefpointer *data.PrefList) data.PrefList {
 	prefs := *prefpointer
 	result := data.NewPrefList()
 	for person, items := range prefs {
@@ -59,5 +57,5 @@ func transformPrefs(prefpointer *data.PrefList) {
 			result[item][person] = pref
 		}
 	}
-	*prefpointer = result
+	return result
 }
