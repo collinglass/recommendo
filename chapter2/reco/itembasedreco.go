@@ -1,7 +1,6 @@
 package reco
 
 import (
-	"fmt"
 	"github.com/collinglass/recommendo/chapter2/algo"
 	"github.com/collinglass/recommendo/chapter2/data"
 	"github.com/collinglass/recommendo/chapter2/sort"
@@ -17,7 +16,7 @@ func ItemBasedRecommend(prefpointer *data.PrefList, simpointer *data.SimList, us
 	for item, rating := range userRatings {
 		for item2, similarity := range similarities[item] {
 			if userRatings[item2] == 0 {
-				scores[item2] = similarity.Score * rating
+				scores[item2] += similarity.Score * rating
 				totalSim[item2] += similarity.Score
 			}
 		}
