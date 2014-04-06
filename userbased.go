@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/collinglass/recommendo/chapter2/algo"
-	"github.com/collinglass/recommendo/chapter2/data"
-	"github.com/collinglass/recommendo/chapter2/reco"
+	"github.com/collinglass/recommendo/algo"
+	"github.com/collinglass/recommendo/data"
+	"github.com/collinglass/recommendo/reco"
 )
 
 func main() {

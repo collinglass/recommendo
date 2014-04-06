@@ -6,17 +6,17 @@ import (
 )
 
 type User struct {
-	UserId int
+	UserId int `json:"userid"`
 }
 
 type Similar struct {
-	UserId int
-	Score  float64
+	UserId int     `json:"userid"`
+	Score  float64 `json:"score"`
 }
 
 type Recommendation struct {
-	Book  int
-	Score float64
+	Book  int     `json:"book"`
+	Score float64 `json:"score"`
 }
 
 type PrefList map[int]map[int]float64

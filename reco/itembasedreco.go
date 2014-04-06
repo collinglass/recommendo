@@ -1,10 +1,43 @@
 package reco
 
 import (
-	"github.com/collinglass/recommendo/chapter2/algo"
-	"github.com/collinglass/recommendo/chapter2/data"
-	"github.com/collinglass/recommendo/chapter2/sort"
+	"fmt"
+	"github.com/collinglass/recommendo/algo"
+	"github.com/collinglass/recommendo/data"
+	"github.com/collinglass/recommendo/sort"
 )
+
+func ItemRunner() (map[int]data.Recommendation, map[int]data.Recommendation) {
+	// Populate data list
+	_, prefs := data.Populate()
+
+	// ITEM-BASED Filtering
+	userId := 2
+
+	simlist := GetSimilar(&prefs, algo.Pearson)
+
+	// recommendation list using Pearson
+	recolist, err := ItemBasedRecommend(&prefs, &simlist, userId)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Print user's recommended list
+	//fmt.Println("Item-based Pearson: ", recolist)
+
+	simlist = GetSimilar(&prefs, algo.Euclidean)
+
+	// recommendation list using Euclidean
+	recolist2, err := ItemBasedRecommend(&prefs, &simlist, userId)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Print user's recommended list
+	//fmt.Println("Item-based Euclidean: ", recolist2)
+
+	return recolist, recolist2
+}
 
 func ItemBasedRecommend(prefpointer *data.PrefList, simpointer *data.SimList, user int) (map[int]data.Recommendation, error) {
 	prefs := *prefpointer

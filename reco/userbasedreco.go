@@ -1,9 +1,38 @@
 package reco
 
 import (
-	"github.com/collinglass/recommendo/chapter2/algo"
-	"github.com/collinglass/recommendo/chapter2/data"
+	"fmt"
+	"github.com/collinglass/recommendo/algo"
+	"github.com/collinglass/recommendo/data"
 )
+
+func UserRunner() (map[int]data.Recommendation, map[int]data.Recommendation) {
+	// Populate data list
+	_, prefs := data.Populate()
+
+	// USER-BASED Filtering
+	userId := 2
+
+	// recommendation list using Pearson
+	recolist, err := UserBasedRecommend(&prefs, userId, algo.Pearson)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Print user's recommended list
+	//fmt.Println("User-based Pearson: ", recolist[userId])
+
+	// recommendation list using Euclidean
+	recolist2, err := UserBasedRecommend(&prefs, userId, algo.Euclidean)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	// Print user's recommended list
+	//fmt.Println("User-based Euclidean: ", recolist2[userId])
+
+	return recolist[userId], recolist2[userId]
+}
 
 func UserBasedRecommend(prefpointer *data.PrefList, person int, simFunc algo.SimFunc) (data.RecoList, error) {
 	prefs := *prefpointer

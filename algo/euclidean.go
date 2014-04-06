@@ -1,7 +1,7 @@
 package algo
 
 import (
-	"github.com/collinglass/recommendo/chapter2/data"
+	"github.com/collinglass/recommendo/data"
 	"math"
 )
 

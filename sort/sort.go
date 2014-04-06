@@ -1,8 +1,8 @@
 package sort
 
 import (
-	"github.com/collinglass/recommendo/chapter2/algo"
-	"github.com/collinglass/recommendo/chapter2/data"
+	"github.com/collinglass/recommendo/algo"
+	"github.com/collinglass/recommendo/data"
 	"sort"
 )
 

@@ -1,22 +1,19 @@
 # Recommendo
 
-Go implementation for Programming Collective Intelligence book.
+Recommendation system for bookAPI.
 
-### Usage
+## Usage
 
-1. Navigate to chapter
-2. ```make```
+```make``` will compile and run the program.
 
-### TODO
+## Structure
 
-- Serve data to a client and use google API to visualize data
+The main directory contains ```userbased.go``` and ```itembased.go``` the main executables and a Makefile.
 
-- Chapter 2
+```/reco``` contains ```userbasedreco.go``` and ```itembasedreco.go``` which are controllers using all the other packages to create a list of recommended items to a given user.
 
-	- deliciousAPI for Golang (so far just parsing to file, maybe next step is to pull in with go and use dataset)
+```/algo``` contains ```algo.go``` with the generic simFunc function which abstracts euclidean and pearson algorithms. It also contains euclidean and pearson algorithms in their respective ```*.go``` files.
 
-- Chapter 3
+```/sort``` contains map sorting algorithm.
 
-## Objective
-
-Complete go implementation of Programming Collective intelligence book.
+```/data``` contains data schemas and initializer functions.
