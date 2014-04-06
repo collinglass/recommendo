@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/collinglass/recommendo/data"
 	"github.com/collinglass/recommendo/reco"
 	"github.com/gorilla/mux"
 	"log"
@@ -13,19 +12,44 @@ import (
 func RecommendationHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
-	ureco := make(map[int]data.Recommendation)
-	ureco, _ = reco.UserRunner()
-	//ireco, ireco2 := reco.ItemRunner()
+	ureco, ureco2 := reco.UserRunner()
+	ireco, ireco2 := reco.ItemRunner()
 
 	slc := make([][2]interface{}, 0, 50)
-	slcval := [2]interface{}{"User", "Rating"}
+	slcval := [2]interface{}{"Book", "Rating"}
 	slc = append(slc, slcval)
 	for _, val := range ureco {
 		slcval = [2]interface{}{val.Book, val.Score}
 		slc = append(slc, slcval)
 	}
-	fmt.Println(slc)
-	json, err := json.Marshal(slc)
+
+	slc2 := make([][2]interface{}, 0, 50)
+	slcval = [2]interface{}{"Book", "Rating"}
+	slc2 = append(slc2, slcval)
+	for _, val := range ureco2 {
+		slcval = [2]interface{}{val.Book, val.Score}
+		slc2 = append(slc2, slcval)
+	}
+
+	slc3 := make([][2]interface{}, 0, 50)
+	slcval = [2]interface{}{"Book", "Rating"}
+	slc3 = append(slc3, slcval)
+	for _, val := range ireco {
+		slcval = [2]interface{}{val.Book, val.Score}
+		slc3 = append(slc3, slcval)
+	}
+
+	slc4 := make([][2]interface{}, 0, 50)
+	slcval = [2]interface{}{"Book", "Rating"}
+	slc4 = append(slc4, slcval)
+	for _, val := range ireco2 {
+		slcval = [2]interface{}{val.Book, val.Score}
+		slc4 = append(slc4, slcval)
+	}
+
+	metaslc := [4]interface{}{slc, slc2, slc3, slc4}
+
+	json, err := json.Marshal(metaslc)
 	if err != nil {
 		fmt.Println(err)
 	}

@@ -11,14 +11,14 @@
 					console.log( "success" );
 			
 					google.setOnLoadCallback(drawChart);
-					
+					window.console.log(myJson);
 					function drawChart() {
 						window.console.log(myJson);
-						var data = google.visualization.arrayToDataTable(myJson);
+						var data = google.visualization.arrayToDataTable(myJson[0]);
 
 						var options = {
-						  title: 'User Rating',
-						  hAxis: {title: 'User', minValue: 0, maxValue: 100},
+						  title: 'User: Book Rating',
+						  hAxis: {title: 'Book', minValue: 0, maxValue: 100},
 						  vAxis: {title: 'Rating', minValue: 0, maxValue: 1},
 						  legend: 'none'
 						};
