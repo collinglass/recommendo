@@ -18,8 +18,10 @@ func RecommendationHandler(w http.ResponseWriter, r *http.Request) {
 	//ireco, ireco2 := reco.ItemRunner()
 
 	slc := make([][2]interface{}, 0, 50)
+	slcval := [2]interface{}{"User", "Rating"}
+	slc = append(slc, slcval)
 	for _, val := range ureco {
-		slcval := [2]interface{}{val.Book, val.Score}
+		slcval = [2]interface{}{val.Book, val.Score}
 		slc = append(slc, slcval)
 	}
 	fmt.Println(slc)
